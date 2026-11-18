@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="SeatSync.API/SeatSync.API.csproj" />
+  <Project Path="SeatSync.Tests/SeatSync.Tests.csproj" Id="bf47254a-a295-43ab-b174-7c8ba700a9d0" />
 </Solution>
