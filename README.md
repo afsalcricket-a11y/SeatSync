@@ -1,3 +1,6 @@
+[![SeatSync CI](https://github.com/afsalcricket-a11y/SeatSync/actions/workflows/ci.yml/badge.svg)](https://github.com/afsalcricket-a11y/SeatSync/actions/workflows/ci.yml)
+
+
 <div align="center">
 
 # 🎟️ SeatSync
@@ -43,4 +46,3 @@ In high-demand ticket sales (such as IPL finals or concerts), multiple users fre
                                                              │  Events • Seats • Bookings  │
                                                              │    Users • Wallets • Txns   │
                                                              └─────────────────────────────┘
-[![SeatSync CI](https://github.com/afsalcricket-a11y/SeatSync/actions/workflows/ci.yml/badge.svg)](https://github.com/afsalcricket-a11y/SeatSync/actions/workflows/ci.yml)
