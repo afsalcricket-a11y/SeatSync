@@ -1,0 +1,53 @@
+name: SeatSync CI (Build & Concurrency Tests)
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  backend-build-and-test:
+    name: ASP.NET Core Build & xUnit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+
+      - name: Restore API & Test dependencies
+        run: |
+          dotnet restore SeatSync.API/SeatSync.API.csproj
+          dotnet restore SeatSync.Tests/SeatSync.Tests.csproj
+
+      - name: Build SeatSync.API (Release)
+        run: dotnet build SeatSync.API/SeatSync.API.csproj --configuration Release --no-restore
+
+      - name: Run xUnit Concurrency Tests
+        run: dotnet test SeatSync.Tests/SeatSync.Tests.csproj --configuration Release --verbosity normal
+
+  frontend-build:
+    name: React + Vite Build Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install & Build React Client
+        working-directory: ./client
+        run: |
+          npm install
+          npm run build
+          
